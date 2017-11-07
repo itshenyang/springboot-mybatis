@@ -32,11 +32,11 @@ public class SwaggerController {
         List<User> list=new ArrayList<User>();
 
         User user=new User();
-        user.setName("hello");
+        user.setU_nickname("hello");
         list.add(user);
 
         User user2=new User();
-        user.setName("world");
+        user.setU_nickname("world");
         list.add(user2);
         return list;
     }
@@ -45,7 +45,7 @@ public class SwaggerController {
     @RequestMapping(value="/{name}",method=RequestMethod.GET)
     public User getUserById(@PathVariable String name){
         User user=new User();
-        user.setName("hello world");
+        user.setU_nickname("hello world");
         return user;
     }
 }

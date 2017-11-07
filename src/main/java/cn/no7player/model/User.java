@@ -1,18 +1,20 @@
 package cn.no7player.model;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * Created by zl on 2015/8/27.
  */
 public class User {
-    private String u_name;
+    private String u_nickname;
     private String u_pwd;
 
-    public String getU_name() {
-        return u_name;
+    public String getU_nickname() {
+        return u_nickname;
     }
 
-    public void setU_name(String u_name) {
-        this.u_name = u_name;
+    public void setU_nickname(String u_nickname) {
+        this.u_nickname = u_nickname;
     }
 
     public String getU_pwd() {

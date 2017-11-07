@@ -3,7 +3,7 @@
 <mapper namespace="cn.no7player.mapper.UserMapper">
  
   <select id="findUserInfo" resultType="cn.no7player.model.User">
-    select * from user;
+    select * from user limit 1;
   </select>
  
 </mapper>

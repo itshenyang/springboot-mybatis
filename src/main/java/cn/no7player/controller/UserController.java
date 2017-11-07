@@ -24,8 +24,7 @@ public class UserController {
     public User getUserInfo() {
         User user = userService.getUserInfo();
         if(user!=null){
-            System.out.println("user.getName():"+user.getName());
-            logger.info("user.getAge():"+user.getAge());
+            System.out.println("user.getName():"+user.getU_nickname());
         }
         return user;
     }
