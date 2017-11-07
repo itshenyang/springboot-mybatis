@@ -5,6 +5,7 @@ import org.apache.ibatis.type.Alias;
 /**
  * Created by zl on 2015/8/27.
  */
+@Alias("user")
 public class User {
     private String u_nickname;
     private String u_pwd;

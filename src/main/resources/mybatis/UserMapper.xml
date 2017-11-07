@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.no7player.mapper.UserMapper">
  
-  <select id="findUserInfo" resultType="cn.no7player.model.User">
+  <select id="findUserInfo" resultType="user">
     select * from user limit 1;
   </select>
  

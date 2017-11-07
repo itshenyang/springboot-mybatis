@@ -45,6 +45,7 @@ public class Application implements EmbeddedServletContainerCustomizer {
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/*.xml"));
+        sqlSessionFactoryBean.setTypeAliasesPackage("cn.no7player.model");
 
         return sqlSessionFactoryBean.getObject();
     }
@@ -61,13 +62,13 @@ public class Application implements EmbeddedServletContainerCustomizer {
 
     @Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
-            FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
-            FastJsonConfig fastJsonConfig = new FastJsonConfig();
-            fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-            fastConverter.setFastJsonConfig(fastJsonConfig);
-            HttpMessageConverter<?> converter = fastConverter;
-            return new HttpMessageConverters(converter);
-        }
+        FastJsonHttpMessageConverter fastConverter = new FastJsonHttpMessageConverter();
+        FastJsonConfig fastJsonConfig = new FastJsonConfig();
+        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+        fastConverter.setFastJsonConfig(fastJsonConfig);
+        HttpMessageConverter<?> converter = fastConverter;
+        return new HttpMessageConverters(converter);
+    }
 
 
     /**
