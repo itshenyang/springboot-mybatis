@@ -31,18 +31,21 @@ public class AccessSecurityFilter extends HandlerInterceptorAdapter {
                 "requestURL=" + requestURL + ";\n" +
                 "method=" + method + ";\n" +
                 "pathInfo=" + pathInfo);
-
         return super.preHandle(request, response, handler);
     }
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
         super.postHandle(request, response, handler, modelAndView);
+        L.w("AccessSecurityFilter -> postHandle");
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
         super.afterCompletion(request, response, handler, ex);
+        L.w("AccessSecurityFilter -> afterCompletion");
 
     }
 
