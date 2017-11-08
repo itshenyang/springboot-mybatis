@@ -4,6 +4,7 @@ import cn.no7player.model.User;
 import cn.no7player.service.UserService;
 import cn.no7player.utils.L;
 import org.apache.log4j.Logger;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,4 +29,5 @@ public class UserController {
         }
         return user;
     }
+
 }

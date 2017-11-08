@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by Huan on 2017/2/8.
  */
+
 public class AccessControlAllowOriginFilter extends HandlerInterceptorAdapter {
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
