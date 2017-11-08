@@ -34,8 +34,9 @@ public class Application extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new AccessSecurityFilter()).addPathPatterns("/**");
+
         registry.addInterceptor(new AccessControlAllowOriginFilter()).addPathPatterns("/**");
+        registry.addInterceptor(new AccessSecurityFilter()).addPathPatterns("/**");
         super.addInterceptors(registry);
     }
 

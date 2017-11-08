@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +24,7 @@ public class UserController {
     @RequestMapping("/getUserInfo")
     @ResponseBody
     public User getUserInfo() {
+        //L.w("user1 ="+user1.toString());
         User user = userService.getUserInfo();
         if(user!=null){
             L.w("user.getName():" + user.getU_nickname());

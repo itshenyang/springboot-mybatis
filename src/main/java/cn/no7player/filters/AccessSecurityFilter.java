@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AccessSecurityFilter extends HandlerInterceptorAdapter {
 
-    private String gihre="http://localhost";
+    private String gihre = "http://localhost";
 
 
     @Override
@@ -40,8 +40,14 @@ public class AccessSecurityFilter extends HandlerInterceptorAdapter {
         if (!remoteAddr.matches("[a-zA-z]")) {
             if (!remoteAddr.equals("0:0:0:0:0:0:0:1")) {
                 L.w("非法的IP访问");
-                response.sendRedirect(gihre+requestURI);
-                return super.preHandle(request, response, handler);
+                return false;
+//                response.setStatus(301);
+//                response.setHeader("Location",gihre+requestURI);
+//                return super.preHandle(request, response, handler);
+
+
+//                response.sendRedirect(gihre+requestURI);
+//                return super.preHandle(request, response, handler);
             }
 
         }
