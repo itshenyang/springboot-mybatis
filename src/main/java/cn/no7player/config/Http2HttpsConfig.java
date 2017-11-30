@@ -36,9 +36,9 @@ public class Http2HttpsConfig {
     public Connector httpConnector(){//2
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
-        connector.setPort(8080);
+        connector.setPort(8888);
         connector.setSecure(false);
-        connector.setRedirectPort(80);
+        connector.setRedirectPort(9999);
         return connector;
     }
 }

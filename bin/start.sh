@@ -2,4 +2,4 @@
 cd ..
 git pull origin master
 mvn clean package
-java -jar target/springboot-mybatis-1.0-SNAPSHOT.jar --server.port=80
+java -jar target/springboot-mybatis-1.0-SNAPSHOT.jar --server.port=9999
