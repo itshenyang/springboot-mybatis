@@ -37,23 +37,23 @@ public class AccessSecurityFilter extends HandlerInterceptorAdapter {
                 "method=" + method + ";\n" +
                 "pathInfo=" + pathInfo);
 
-        try {
-            if (remoteAddr.equals("0:0:0:0:0:0:0:1")) {
-                L.w("正常的本地访问");
-                return super.preHandle(request, response, handler);
-            }
-            String[] strings = remoteAddr.split("");
-            for (int i = 0; i < strings.length; i++) {
-                if (strings[i].matches("[a-zA-z]")) {
-                    L.w("正常的域名访问");
-                    return super.preHandle(request, response, handler);
-                }
-            }
-            L.w("非法的IP访问");
-            return false;
-        } catch (Exception e) {
-
-        }
+//        try {
+//            if (remoteAddr.equals("0:0:0:0:0:0:0:1")) {
+//                L.w("正常的本地访问");
+//                return super.preHandle(request, response, handler);
+//            }
+//            String[] strings = remoteAddr.split("");
+//            for (int i = 0; i < strings.length; i++) {
+//                if (strings[i].matches("[a-zA-z]")) {
+//                    L.w("正常的域名访问");
+//                    return super.preHandle(request, response, handler);
+//                }
+//            }
+//            L.w("非法的IP访问");
+//            return false;
+//        } catch (Exception e) {
+//
+//        }
         return super.preHandle(request, response, handler);
     }
 
