@@ -37,34 +37,38 @@ public class AccessSecurityFilter extends HandlerInterceptorAdapter {
                 "method=" + method + ";\n" +
                 "pathInfo=" + pathInfo);
 
-        if (!remoteAddr.matches("[a-zA-z]")) {
-            if (!remoteAddr.equals("0:0:0:0:0:0:0:1")) {
-                L.w("非法的IP访问");
-                return false;
-//                response.setStatus(301);
-//                response.setHeader("Location",gihre+requestURI);
-//                return super.preHandle(request, response, handler);
-
-
-//                response.sendRedirect(gihre+requestURI);
-//                return super.preHandle(request, response, handler);
+        try {
+            if (remoteAddr.equals("0:0:0:0:0:0:0:1")) {
+                L.w("正常的本地访问");
+                return super.preHandle(request, response, handler);
             }
+            String[] strings = remoteAddr.split("");
+            for (int i = 0; i < strings.length; i++) {
+                if (strings[i].matches("[a-zA-z]")) {
+                    L.w("正常的域名访问");
+                    return super.preHandle(request, response, handler);
+                }
+            }
+            L.w("非法的IP访问");
+            return false;
+        } catch (Exception e) {
 
         }
-        L.w("正常域名访问");
         return super.preHandle(request, response, handler);
     }
 
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        super.postHandle(request, response, handler, modelAndView);
+        @Override
+        public void postHandle (HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView
+        modelAndView) throws Exception {
+            super.postHandle(request, response, handler, modelAndView);
+        }
+
+        @Override
+        public void afterCompletion (HttpServletRequest request, HttpServletResponse response, Object handler, Exception
+        ex) throws Exception {
+            super.afterCompletion(request, response, handler, ex);
+
+        }
+
+
     }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        super.afterCompletion(request, response, handler, ex);
-
-    }
-
-
-}
