@@ -14,7 +14,7 @@ import java.util.List;
  * Created by zl on 2015/8/27.
  */
 @RestController
-@RequestMapping(value="/users")
+@RequestMapping(value="/swagger")
 public class SwaggerController {
 
 

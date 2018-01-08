@@ -17,8 +17,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.spring>3.2.9.RELEASE</version.spring>
+        <version.swagger2>2.5.0</version.swagger2>
         <version.jackson>2.4.4</version.jackson>
         <java.version>1.7</java.version>
+
     </properties>
 
     <dependencies>
@@ -94,8 +96,18 @@
             <artifactId>jackson-core</artifactId>
             <version>${version.jackson}</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${version.swagger2}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${version.swagger2}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
