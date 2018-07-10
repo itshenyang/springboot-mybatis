@@ -3,6 +3,7 @@ package cn.no7player.controller;
 import cn.no7player.model.User;
 import cn.no7player.service.UserService;
 import cn.no7player.utils.L;
+import cn.no7player.utils.LanCodec;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,10 @@ public class UserController {
     public User getUserInfo() {
         //L.w("user1 ="+user1.toString());
         User user = userService.getUserInfo();
+        user.setU_pwd(LanCodec.decrypt(user.getU_pwd()));
         if(user!=null){
             L.w("user.getName():" + user.getU_nickname());
+            L.w("user.getU_pwd():" + user.getU_pwd());
         }
         return user;
     }

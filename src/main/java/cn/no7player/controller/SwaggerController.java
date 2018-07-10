@@ -42,10 +42,10 @@ public class SwaggerController {
     }
 
     @ApiOperation(value="Get user with id",notes="requires the id of user")
-    @RequestMapping(value="/{name}",method=RequestMethod.GET)
-    public User getUserById(@PathVariable String name){
+    @RequestMapping(value="/{name}/{pass}",method=RequestMethod.GET)
+    public User getUserById(@PathVariable String name,@PathVariable String pass){
         User user=new User();
-        user.setU_nickname("hello world");
+        user.setU_nickname("hello "+name  +"  "+pass);
         return user;
     }
 }

@@ -13,5 +13,12 @@ public class HelloController {
         model.addAttribute("name", name);
         return "hello";
     }
-    
+    @RequestMapping("/baidu")
+    public String baidu(){
+        return "redirect:https://www.baidu.com";
+    }
+    @RequestMapping("/s")
+    public String d31(){
+        return "redirect:https://www.itshenyang.net/s8000";
+    }
 }
